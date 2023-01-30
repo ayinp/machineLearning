@@ -17,7 +17,7 @@ def replace(string, dic):
 def toWord(thing):
     try:
         num = int(thing)
-    except valueError:
+    except ValueError:
         return thing
     else:
         return toStr1To100(num)
@@ -33,28 +33,30 @@ def toStr1To100(num):
         return "twelve"
     elif(num == 13):
         return "thirteen"
-    elif(num > 13 and num < 100):
+    elif(num == 15):
+        return "fifteen"
+    elif((num > 13 and num < 100) and num != 15):
         num = str(num)
         if(int(num)%10 == 0):
-            return numbers[int(num[0])][2]
+            return numbers[int(num[0])][1]
         if(int(num) > 13 and int(num) < 20):
-            return numbers[int(num[1])][0] + numbers[int(num[0])][2]
-        return numbers[int(num[0])][2] + " " + numbers[int(num[1])][0]
+            return numbers[int(num[1])][0] + numbers[int(num[0])][1]
+        return numbers[int(num[0])][1] + " " + numbers[int(num[1])][0]
     elif(num == 100):
         return "one hundred!"
     return "UGH, I can't count that high, JEEZ!"
           
 numbers = {
- 1 : ["one",   "eleven", "teen"],
- 2 : ["two",   "twelve", "twenty"],
- 3 : ["three", "thir",   "thirty"],
- 4 : ["four",  "four",   "forty"],
- 5 : ["five",  "fif",    "fifty"],
- 6 : ["six",   "six",    "sixty"],
- 7 : ["seven", "seven",  "seventy"],
- 8 : ["eight", "eight",  "eighty"],
- 9 : ["nine",  "nine",   "ninty"],
- 0 : ["zero",  "ten",    "hundred"]
+ 1 : ["one",    "teen"],
+ 2 : ["two",    "twenty"],
+ 3 : ["three",   "thirty"],
+ 4 : ["four",    "forty"],
+ 5 : ["five",    "fifty"],
+ 6 : ["six",     "sixty"],
+ 7 : ["seven",   "seventy"],
+ 8 : ["eight",   "eighty"],
+ 9 : ["nine",    "ninty"],
+ 0 : ["zero",    "hundred"]
 }
 
 print("REVERSE TEST")
