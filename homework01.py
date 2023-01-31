@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
-def reverse(string):
-    newString = ""
+def reverse(string): 
     strings = reversed(string.split())
     return " ".join(strings)
     
 def replace(string, dic):
-    newString = ""
     strings = string.split()
     newDic = {}
     for key, value in dic.items():
@@ -23,8 +21,10 @@ def toWord(thing):
         return toStr1To100(num)
         
 def toStr1To100(num):
+    #single digets
     if(num < 10):
         return numbers[num][0]
+    #weird teens
     elif(num == 10):
         return "ten"
     elif(num == 11):
@@ -35,13 +35,18 @@ def toStr1To100(num):
         return "thirteen"
     elif(num == 15):
         return "fifteen"
+    #less wierd numbers
     elif((num > 13 and num < 100) and num != 15):
         num = str(num)
-        if(int(num)%10 == 0):
-            return numbers[int(num[0])][1]
+        #more teens
         if(int(num) > 13 and int(num) < 20):
             return numbers[int(num[1])][0] + numbers[int(num[0])][1]
+        #nums ending in zero
+        if(int(num)%10 == 0):
+            return numbers[int(num[0])][1]
+        #all the other "normal" numbers
         return numbers[int(num[0])][1] + " " + numbers[int(num[1])][0]
+    #one hundred lmao
     elif(num == 100):
         return "one hundred!"
     return "UGH, I can't count that high, JEEZ!"
