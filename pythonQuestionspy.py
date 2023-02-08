@@ -103,37 +103,102 @@ print(lettersOccur(string))
 #into a single string, separated by a space.
 print("concatenate test")
 def concatenate(strings):
-    returnString = ""
-    for string in strings:
-        returnString += string + " "
-    return returnString
+    return " ".join(strings)
 print(concatenate(["hello", "world"]))
 
 # Write a generator that yields the first n even numbers.
-
+print("even numbers test")
+def evens(n):
+    returnList = []
+    evenCounter = 0
+    i = 0
+    while evenCounter < n:
+        if(i%2 == 0):
+            returnList.append(i)
+            evenCounter += 1
+        i += 1
+    return returnList
+print(evens(10))
+        
 # Write a list comprehension that takes a list of numbers and returns 
 # a new list containing only the positive numbers.
+print("only pos nums")
+def posNums(lis):
+    return [x for x in lis if x > 0]
+
+nums = [1,2,-4,99,-100,43,2993,95,-255,-53,-31]
+print(nums)
+print(posNums(nums))
 
 # Write a generator expression that computes the sum of the squares of 
 # the first n positive numbers.
+print("sum of squares test")
+def sumOfSquares(n):
+    return sum(num*num for num in range(n))
+print(sumOfSquares(10))
 
 # Write a set comprehension that takes a list of strings and returns 
 # a set of all the unique characters in the strings.
+print("unique characters test")
+def uniqueChar(lis):
+    return {c.lower() for s in lis for c in s}
+strings = ["Hello", "World", "!"]
+print(strings)
+print(uniqueChar(strings))
 
 # Write a dictionary comprehension that takes a list of numbers and returns
 # a dictionary where the keys are the numbers and the values are their squares.
+print("dictionary of squares test")
+def dicOfSqrs(lis):
+    return {n:n*n for n in lis}
+nums = [1,5,3,2,7,4,3]
+print(dicOfSqrs(nums))
 
 # Write a generator that yields all the divisors of a number.
-
+print("devisors test")
+def devisors(n):
+    return [i for i in (i for i in range(1, n+1) if n % i == 0)]
+print(24)
+print(devisors(24))
+    
 # Write a list comprehension that takes a list of strings and returns a
 # new list containing only the strings that start with a specific letter.
+print("beginning letter test")
+def beginLetter(lis, letter):
+    return [word for word in lis if letter.lower() == word[0].lower()]
+sentances = ["Today I taught Tommy how to climb a tree", "tonight I will climb a tree", "everyone will climb a tree"]
+print(sentances)
+print(beginLetter(sentances, "t"))
 
 # Write a generator expression that computes the dot product of two vectors
 # represented as lists.
+print("dot product test")
+def dotProductList(v1, v2):
+    return sum(a*b for a,b in zip(v1, v2))
+v1 = [2,4,6]
+v2 = [8,3,9]
+print(v1, " dot ", v2)
+print(dotProductList(v1, v2))
 
 # Write a set comprehension that takes a list of strings and returns a set 
 #of all the palindrome strings in the list.
+print("palendrome test")
+def palindromeStrings(lis):
+    return [string for string in lis if string.lower() == string[::-1].lower()]
+strings = ["racecar", "the", "Ayin", "Dad", "mOM"]
+print(strings)
+print(palindromeStrings(strings))
 
 # Write a dictionary comprehension that takes a list of numbers and returns 
 # a dictionary where the keys are the numbers and the values are True if
 # the number is even and False if the number is odd.
+print("odd even dictionary test")
+def oddEvenDict(lis):
+    return {n:True if n%2 == 0 else False for n in lis}
+nums = [2,3,4,5,7,8,9,3,46,54,24,46,23]
+print(oddEvenDict(nums))
+
+
+
+
+
